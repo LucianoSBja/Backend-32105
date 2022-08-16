@@ -5,7 +5,7 @@
 <h3 align="center">Practicas y Desafios para el curso de CODERHOUSE</h3>
 
   
-<h3 align="left">Languages and Tools:</h3>
+<h3 align="center">Languages and Tools:</h3>
 <p align="center"> 
      <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> 
       </a> 
