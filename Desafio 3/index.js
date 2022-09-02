@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const contenedor = require("./Contenedor");
+const Contenedor = require("./conteiner");
 const contenedor = new Contenedor("./productos.json");
 
 app.get('/', (req,res)=>{
-res.send("LucianoSBja")
+res.send(`<h1 style="color: red" >Bienvenidos al servidor express</h1>`)
 })
 
 app.get('/productos', async (req,res)=>{
