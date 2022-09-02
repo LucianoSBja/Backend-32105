@@ -1,12 +1,11 @@
-
 const fs = require("fs")
 
-class Contenedor {
+module.exports = class Contenedor {
     constructor(archivo) {
         this.archivo = archivo;
     }
 
-    // Funcion guardar objeto 
+    // =Guardar objeto 
     async save(objeto) {
         try {
             const data = await fs.promises.readFile(`${this.archivo}`, "utf-8")
@@ -22,7 +21,7 @@ class Contenedor {
         }
     }
 
-    // Funcion para devolver el array completo
+    // Devolver el array completo
     async getAll() {
         try{
         const data = await fs.promises.readFile(`${this.archivo}`, "utf-8")
@@ -31,7 +30,7 @@ class Contenedor {
         console.error("Error desafio 3")
     }}
 
-// Funcion para obtener 1 producto por ID (no se usa await porque no se espera nada externo)
+// Obtener 1 producto por ID 
 async getById(id){
 const data = await fs.promises.readFile(`${this.archivo}`, "utf-8")
 const productos = JSON.parse(data)
@@ -42,7 +41,7 @@ return producto;
     return "Producto no encontrado"}
 }
 
-// Funcion para eliminar por id.
+// Eliminar por id.
 async deleteById(id) {
     try{
     const data = fs.readFileSync(`${this.archivo}`, "utf-8");
@@ -56,7 +55,7 @@ async deleteById(id) {
 }
   }
 
-  // Funcion para eliminar todo
+  //Eliminar todo
   deleteAll() {
     try{
         fs.writeFileSync(`${this.archivo}`, "[]");
@@ -67,4 +66,6 @@ async deleteById(id) {
   }
 }
 
-module.exports = Contenedor;
+
+
+ 
