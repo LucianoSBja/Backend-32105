@@ -7,7 +7,7 @@ app.get('/', (req,res)=>{
 res.send(`<h1 style="color: red" >Bienvenidos al servidor express</h1>`)
 })
 
-app.get('/productos', async (req,res)=>{
+app.get('/productos', async (req,res) => {
     const data = await contenedor.getAll()
     console.log(data)
     res.send(data)
