@@ -1,30 +1,29 @@
-// import daoMongo from "./daoMongo.js";
-
-// const mongo = new daoMongo();
-// const read = await mongo.read();
-// console.log(read)
-
+//! DOTENV
 import * as dotenv from "dotenv";
-dotenv.config();
-console.log(process.env.TIPO_DB)
+process.env.NODE_ENV
+  ? dotenv.config({ path: `.env.${process.env.NODE_ENV}` })
+  : dotenv.config();
 
-const daos = {
-    Mongo: async () => {
-        const { default: daoMongo } = await import("./daoMongo.js");
-        return new daoMongo();
-    },
-    Mysql: async () => {
-        const { default: daoMysql } = await import("./daoMysql.js");
-        return new daoMysql();
-    },
-    Firebase: async () => {
-        const { default: daoFirebase } = await import("./daoFirebase.js");
-        return new daoFirebase();
-    },
-    Sqlite: async () => {
-        const { default: daoSqlite } = await import("./daoSQLite3.js");
-        return new daoSqlite();
-    }
+let DAOProducts, DAOCarts;
+
+switch (process.env.TYPE) {
+  case "firebase":
+    break;
+  case "mongodb":
+    const { default: DAOProductsMongo } = await import("./mongo.DAO.products.js");
+    const { default: DAOCartsMongo } = await import("./mongo.DAO.cart.js");
+
+    DAOProducts = new DAOProductsMongo();
+    DAOCarts = new DAOCartsMongo();
+    break;
+
+  default:
+    const { default: DAOProductsFile } = await import("./file.DAO.products.js");
+    const { default: DAOCartsFile } = await import("./file.DAO.cart.js");
+
+    DAOProducts = new DAOProductsFile();
+    DAOCarts = new DAOCartsFile();
+    break;
 }
 
-export default daos[process.env.TIPO_DB]();
+export { DAOProducts, DAOCarts };
