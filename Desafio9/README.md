@@ -1,8 +1,6 @@
-# Felipe Pardo
 
-## new-Backend --- 
 
-### Para iniciar el proyecto
+# Para iniciar el proyecto
 ```
 npm run dev
 ```
