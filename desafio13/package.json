@@ -3,21 +3,21 @@
 	"version": "1.0.0",
 	"description": "Comenzando el proyecto para el curso de backend de coderhouse",
 	"main": "main.js",
-	"type": "module",
+	"type": "commonjs",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"iniciar": "nodemon --inspect --tls-min-v1.0 main.js"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/.git"
+		"url": "git"
 	},
-	"author": "Claudio Fernandez",
+	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/issues"
+		"url": "https://github.com"
 	},
-	"homepage": "#readme",
+	"homepage": "https://github.com/#readme",
 	"dependencies": {
 		"@faker-js/faker": "^7.6.0",
 		"axios": "^0.27.2",
